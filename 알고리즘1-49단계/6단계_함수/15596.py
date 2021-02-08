@@ -4,3 +4,4 @@ def solve(a):
     for i in a:
         ans += i
     return ans
+
