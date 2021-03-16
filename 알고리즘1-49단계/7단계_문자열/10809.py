@@ -1,4 +1,4 @@
-# 6-3) 10809번: 알파벳 찾기
+# 7-3) 10809번: 알파벳 찾기
 word = input()
 alphabet = list(range(97,123)) #아스키코드 숫자 범위를 리스트 변환
 for i in alphabet:
