@@ -11,3 +11,4 @@ for i in range(1, num+1): #num까지 포함
         nums = list(map(int, str(i))) #숫자를 자릿수대로 분리(리스트화)
         if nums[0] - nums[1] == nums[1] - nums[2]: #등차수열 조건
             hansu+=1
+print(hansu)
