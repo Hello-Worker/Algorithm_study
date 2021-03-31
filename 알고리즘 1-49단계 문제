@@ -1,0 +1,345 @@
+##### 백준 알고리즘 단계문제 (1~49단계) 코딩 #####
+# <형식> 단계) 알고리즘 문제번호: 문제 이름
+# <검색키워드> 틀림: 틀린 문제 , 복습: 복습 필요한 문제
+
+
+#===================================1단계. 입출력과 사칙연산===================================#
+
+# 1-1) 2557번: Hello World
+print("Hello World!")
+
+
+# 1-2) 10718번: We love kriii
+print("강한친구 대한육군")
+print("강한친구 대한육군")
+
+
+# 1-3) 10171번: 고양이
+print('\    /\\')
+print(" )  ( ')")
+print('(  /  )')
+print(' \(__)|')
+
+
+# 1-4) 10172번: 개 (틀림)
+print("|\_/|")
+print("|q p|   /}")
+print('( 0 )"""\\')
+print('|"^"`    |')
+print('||_/=\\__|')
+
+
+# 1-5) 1000번: A+B
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a+b)
+
+
+
+# 1-6) 1001번: A-B
+a,b = input().split()
+print(int(a)-int(b))
+
+
+# 1-7) 10998번: AXB
+a,b = input().split()
+print(int(a)*int(b))
+
+
+# 1-8) 1008번: A/B
+a,b = input().split()
+print(int(a)/int(b))
+
+
+# 1-9) 10869번: 사칙연산
+A,B = input().split()
+A = int(A)
+B = int(B)
+print(A+B)
+print(A-B)
+print(A*B)
+print(A//B)
+print(A%B)
+
+
+# 1-10) 10430번: 나머지
+A,B,C = input().split()
+A = int(A)
+B = int(B)
+C = int(C)
+print((A+B)%C)
+print((A%C+B%C)%C)
+print((A*B)%C)
+print(((A%C) * (B%C))%C)
+
+
+# 1-11) 2588번: 곱셈
+A= int(input())
+B= input()
+a = A*int(B[2])
+b = A*int(B[1])
+c = A*int(B[0])
+d = A* int(B)
+print(a, b, c, d, sep='\n')
+
+#===================================2단계. if문===================================#
+
+# 2-1) 1330번: 두 수 비교하기
+A,B = input().split()
+A = int(A)
+B = int(B)
+if A>B:
+    print('>')
+elif A<B:
+    print('<')
+else:
+    print('==')
+    
+    
+# 2-2) 9498번: 시험 성적
+a = input()
+a = int(a)
+if 90<=a:
+    print("A")
+elif 80<=a:
+    print("B")
+elif 70<=a:
+    print("C")
+elif 60<=a:
+    print("D")
+else:
+    print("F")
+    
+    
+# 2-3) 2753번: 윤년
+a = input()
+a = int(a)
+if a%4 == 0 and a%100 !=0:
+    print('1')
+elif a%4 ==0 and a%400 ==0:
+    print('1')
+else:
+    print('0')
+    
+    
+# 2-4) 14681번: 사분면 고르기
+x = int(input())
+y = int(input())
+if x>0 and y>0:
+    print('1')
+if x<0 and y>0:
+    print('2')
+if x<0 and y<0:
+    print('3')
+if x>0 and y<0:
+    print('4')
+
+
+# 2-5) 2884번: 알람 시계
+a,b = input().split()
+a = int(a)
+b = int(b)
+if b>=45:
+    print(a,b-45)
+elif a>0 and b<45:
+    sol = b+15
+    print(a-1,sol)
+else: 
+    sol = b+15
+    print("23",sol)
+    
+#===================================3단계. for문===================================#
+
+# 3-1) 2739번: 구구단
+N = int(input())  # 정수로 수를 받아줌.
+for i in range(1, 10):  # 1부터 9까지 i를 반복
+    print("%d * %d = %d" % (N, i, N * 1))  # %d: 정수형, %s: 문자열
+
+
+# 3-2) 10950번: A+B-3
+T = int(input())
+for i in range(T):  # 0부터 시작이므로 T-1까지 T회 반복. T+1안해줘도 됨.
+    A, B = input().split()  # 문자열로 받은 후 split()공백을 기준으로 두 수를 나눠준다.
+    A = int(A)  # A 정수형으로
+    B = int(B)  # B 정수형으로
+    print(A + B)
+
+
+# 3-3) 8393번: 합
+n = int(input())
+sum = 0  # sum=0으로 초기값을 설정해줘야 sum변수가 생성. 입력하지 않으면 변수선언이 되지않아 런타임 오류발생.
+for i in range(n + 1):  # n: n-1까지 포함, n+1:n까지 포함. 문제는 n까지의 합이므로 n+1을 해줘야한다.
+    sum += i  # sum = sum+i, i를 반복시키며 sum에 값을 축적.
+print(sum)
+
+
+# 3-4) 15552번: 빠른 A+B
+import sys
+
+T = int(input())  # input은 속도가 느려 여러개 입력시 sys를 import한 후 해당 함수를 사용.
+# sys.stdin.readline() : 한 라인 입력 받을 떄
+# sys.stdin() : 여러 줄 입력 받을 때
+for i in range(T):
+    a, b = map(int, sys.stdin.readline().split())
+    print(a + b)
+
+
+# 3-5) 2741번: N 찍기
+N = int(input())
+for i in range(1, N + 1):
+    print(i)
+
+
+# 3-6) 2742번: 기찍 N
+N = int(input())
+for i in range(N, 0, -1):  # N부터 0까지 -1증감.
+    print(i)
+
+
+# 3-7) 11021번: A+B-7
+import sys
+
+T = int(input())
+for i in range(1, T + 1):
+    a, b = map(int, sys.stdin.readline().split())
+    print("Case #%d: %d" % (i, a + b))
+
+
+# 3-8) 11022번: A+B-8
+import sys
+
+T = int(input())
+for i in range(1, T + 1):
+    a, b = map(int, sys.stdin.readline().split())
+    print("Case #%d: %d + %d = %d" % (i, a, b, a + b))
+
+
+# 3-9) 2438번: 별 찍기-1
+N = int(input())
+for i in range(1, N + 1):
+    print("*" * i)
+
+
+# 3-10) 2439번: 별 찍기-2
+N = int(input())
+for i in range(N):
+    i += 1
+    print(" " * (N - i) + "*" * i)
+
+
+# 3-11) 10871번: x보다 작은 수 (복습)
+import sys
+
+N, X = map(int, input().split())
+A = list(map(int, sys.stdin.readline().split()))  # list로 각 숫자에 인덱스 부여
+for i in A:
+    if i < X:
+        print(i, end=" ")  # end=" " 공백으로 띄울 것
+
+#===================================4단계. while문===================================#
+
+# 4-1) 10952번: A+B-5
+while(True):
+    A, B = map(int, input().split())
+    if A == 0 and B==0:
+        break;
+    else:
+        print(A+B)
+        
+        
+# 4-2) 10951번: A+B-4
+while True:
+    try:
+        A, B = map(int,input().split())
+    except:
+        break
+    print(A+B)
+    
+    
+# 4-3) 1110번: 더하기 사이클 (틀림)
+
+#===================================5단계. 1차원 배열===================================#
+
+# 5-1) 10818번: 최소, 최대
+N = int(input())
+num_list = list(map(int,input().split()))
+
+print(min(num_list), max(num_list), end='' ) #기본 내장함수 사용
+
+
+# 5-2) 2562번: 최댓값
+num_list = [] #num_list라는 빈 리스트를 정의
+for i in range(9): # 9번 반복해서 값을 입력받는다.
+    num_list.append(int(input())) # append는 리스트에 값을 추가하는 함수
+
+print(max(num_list)) #최댓값을 구하는 함수
+print(num_list.index(max(num_list))+1) #index는 0부터시작하고 예제입력에서는 1부터 시작하므로 인덱스에 +1을 해줘야한다.
+
+
+# 5-3) 2577번: 숫자의 개수
+A = int(input())
+B = int(input())
+C = int(input())
+num = A*B*C
+num_list = list(str(num)) #num변수 안의 숫자들을 문자열 형식으로 바꿔주고 배열시킴
+for i in range(10): #0~9까지반복
+    print(num_list.count(str(i))) #i를 문자열로 변환시킨 후 i에 해당하는 문자의 수를 센다.
+                                  #0~9까지 반복하므로 i의 값은 0~9까지 반복되고, 해당 카운트 값이 출력된다.
+                                  
+        
+# 5-4) 3052번: 나머지
+num = [] #빈 배열 만들어주기
+for i in range(10):
+    n = int(input())
+    num.append(n%42) #입력값을 42로 나눈 나머지들이 num에 저장된다.
+print(len(set(num))) #set은 중복을 제거하고 집합으로 만들어준다.
+                     #배열에서의 len은 요소의 개수를 출력
+                     
+                     
+# 5-5) 1546번: 평균
+N = int(input()) #과목수
+M = list(map(int, input().split()))
+M_max = max(M) #M의 값들 중 최댓값
+
+for i in range(N): # 과목수 N만큼 반복
+    M[i] = M[i]/M_max*100 # M의 인덱스에 새로운 식 적용
+avg = sum(M)/N
+print("%.2f" % avg) # 소수 둘째자리까지 출력
+
+
+# 5-6) 8958번: OX퀴즈
+n = int(input())
+for i in range(n):
+    a = input()
+    jumsu = 0
+    sum = 0
+    for j in range(len(a)): #요소의 개수만큼 반복
+        if a[j] == "O":
+            jumsu += 1 #O가 연속되면 점수가 1씩 커진다.
+            sum += jumsu
+        else:
+            jumsu = 0 #X가 나오면 jumsu의 값이 0으로 초기화된다.
+    print(sum)
+
+
+#5-7) 4344번: 평균은 넘겠지
+C = int(input()) #테스트 케이스의 개수
+for i in range(C):
+    N = list(map(int, input().split()))
+    avg = sum(N[1:])/N[0] #두번째자리부터 점수가 시작하므로 1:
+    cnt = 0
+    for j in N[1:]:
+        if j>avg:
+            cnt += 1
+    print('%.3f' % round((cnt/N[0])*100,3)+"%")#round함수: n번째까지 표현하고 반올림하고 싶을때 사용
+
+#===================================6단계. 함수===================================#
+
+# 6-1) 15596_정수 N개의 합
+def solve(a):
+    ans = 0
+    for i in a:
+        ans += i
+    return ans
+
