@@ -1,12 +1,19 @@
-N = input()
-X = sorted(list(map(int, input().split())))
-group = 0
-group_num = 0
+# N명의 모험가
+# 공포도가 X인 모험가는 X명 이상으로 구성한 모험가 그룹에 참여
+# 최대 모험가 그룹의 개수
+# ex) N=5, 각 각의 공포도가 2 3 1 2 2라면 답은 2
 
-for i in X:
-    group += 1 # 공포도를 하나씩 호출하며 그룹 인원수 증가
-    if i <= group : # 공포도<=그룹에 속한 인원수
-        group_num += 1 # 총 그룹수 +1 => 그룹화를 의미
-        group = 0 #새로운 그룹화를 통해 그룹내 인원 0으로 초기화
+N = map(int,input())
+data = list(map(int,input().split()))
 
-print(group_num)
+data.sort()
+cnt = 0
+result = 0
+
+for i in data: # 낮은 공포도부터 확인
+    cnt += 1
+    if cnt >= i : # 인원수가 공포도와 같아지면 그룹 개수 1증가
+        result += 1
+        cnt = 0
+
+print(result)
