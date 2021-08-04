@@ -1,53 +1,36 @@
-# def solutions(food_times, k):
-#     s = food_times.sort() #전체적으로 한바퀴 도는 회전수를 세기 위해 음식양 오름차순 정렬
-#     l = len(food_times) #요소 개수 세어줌
-#     time = 0 #먹는시간 (먹은 음식의 개수)
-#
-#     if sum(food_times) < k: #총 음식시간의 합 < 전체 시간
-#         return -1
-#
-#     for i in s:
-#         if i != 0 :
-#             for j in i:
-#                 time += 1 #총 음식 시간
-#     last_time = time - k
-#
-# print(solutions([3, 1, 2], 5))
+# 회전판에 먹어야 할 N개의 음식
+# 음식에는 1번부터 N개의 번호표
+# 무지는 1번부터 먹기 시작하며 회전판은 번호가 증가하는 순서대로 무지 앞에 갖다줌
+# 마지막 번호를 섭취하면 1번이 다시 옴
+# 무지는 음식 하나를 1초동안 섭취 후 남은 음식을 그대로 두고, 다음 음식을 섭취
+# 회전판이 음식을 주는 시간은 없다고 가정
+# K초 후에 네트워크 중단. 다시 방송을 이어갈 때 몇번부터 먹어야 하는지 알고자 한다.
+# 각 음식을 먹는데 필요한 시간이 담겨져있는 배열 food_time, K초가 매개변수로 주어질 때 몇 번부터 다시 섭취하면 되는지 return하도록 solution 함수 완성하라
 
-
+import heapq
 def solution(food_times, k):
-    food_times_list = []
-    totalTime = 0
+    answer = 0
+    time = 0
+    pq = []
+    answer_rs = []
+    # 1. 우선순위 큐에 (food_times, 음식 번호) 순으로 담는다.
+    for i in range(len(food_times)):
+        heapq.heappush(pq, [food_times[i], i + 1])
 
-    # 음식의 번호와 음식의 양을 저장
-    for i in range(0, len(food_times)):
-        food_times_list.append([i, food_times[i]])
-        totalTime += food_times[i]
-
-    # 전체 먹는 시간보다 k가 크면 계산 불가능 이므로 -1
-    if totalTime <= k:
-        return -1
-    # 음식 양이 적은 순으로 정렬
-    # key 인자에 함수를 넘겨주면 해당 함수의 반환값을 비교하여 순서대로 정렬한다.
-    # c = sorted(a, key=lambda x: x[0])
-    # c = [(0, 1), (1, 2), (3, 0), (5, 1), (5, 2)]
-    food_times_list.sort(key=lambda x: x[1]) #1번째 인덱스 음식 양순으로 정렬
-
-    # 제일 적은 음식을 길이에 곱한 시간 계산
-    delTime = food_times_list[0][1] * len(food_times_list)
-    # i 사라진 음식의 개수
-    i = 1
-    # k 가 음식을 사라지게 하는 수보다 클 경우 아래 의 반복문 실행
-    while delTime < k: # 전체적으로 삭제되는양 < k
-        k -= delTime # k = k-delTime 전체 바퀴돌고 남은시간
-        delTime = (food_times_list[i][1] - food_times_list[i - 1][1]) * (len(food_times_list) - i)
-        i += 1 ######################
-    # 인덱스 수순으로 배치
-    food_times_list = sorted(food_times_list[i - 1:], key=lambda x: x[0])
-    # k번쨰 음식의 인덱스를 출력
-    return food_times_list[k % len(food_times_list)][0] + 1
-
-
-print(solution([3, 1, 2], 5))
-
-
+    pre_food = 0
+    flag = True
+    while flag:
+        if not pq:
+            return -1
+        length = len(pq)
+        time += (pq[0][0] - pre_food) * length
+        if time > k:
+            time -= (pq[0][0] - pre_food) * length
+            while pq:
+                answer_rs.append(heapq.heappop(pq)[1])
+            answer_rs.sort()
+            answer = answer_rs[(k - time) % length]
+            flag = False
+        else:
+            pre_food = heapq.heappop(pq)[0]
+    return answer
