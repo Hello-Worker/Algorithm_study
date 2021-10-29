@@ -9,7 +9,7 @@
 #     for i in lottos:
 #         if i in win_nums:
 #             cnt += 1
-
+ 
 #     answer[0],answer[1] = rank[cnt+cntz],rank[cnt]
 
 #     return answer
