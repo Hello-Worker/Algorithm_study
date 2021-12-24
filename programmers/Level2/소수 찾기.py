@@ -20,3 +20,4 @@ def solution(numbers):
                 answer.append(int(j))
                 
     return len(set(answer))
+
