@@ -6,5 +6,4 @@ def solution(n):
             
     return answer
 
-solution(6)
 
