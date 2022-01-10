@@ -21,5 +21,3 @@ def solution(priorities, location):
             answer += 1
             if cur[0] == location:
                 return answer
-
-solution([1, 1, 9, 1, 1, 1],2)
