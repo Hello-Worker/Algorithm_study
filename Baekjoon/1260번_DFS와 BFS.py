@@ -50,7 +50,7 @@ bfs(V)
 # bfs
 # V = 1,
 # queue = [1] #방문 노드 저장
-# visited[1] = 1 => visited = [0][1][0][0][0]
+# visited2[1] = 1 => visited2 = [0][1][0][0][0]
 # queue = []
 # 1
 # visited[2]==0 and graph[1][2]==1
