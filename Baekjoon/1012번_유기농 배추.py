@@ -38,7 +38,3 @@ for i in range(T):
                 cnt += 1
 
     print(cnt)
-
-
-
-
