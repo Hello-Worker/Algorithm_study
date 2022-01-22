@@ -2,8 +2,7 @@
 # 2. 바이러스를 흩뿌린다.
 # 3. 가장 큰 안전 영역을 구함
 
-import sys, copy
-from collections import deque
+import sys
 from itertools import combinations
 
 N, M = map(int, input().split())
@@ -22,10 +21,11 @@ def virus(x,y):
         if nx < 0 or nx >= N or ny < 0 or ny >= M:
             continue
 
-        if temp[nx][ny] == 0 and not visited[nx][ny]:
-            temp[nx][ny] = 2
-            visited[nx][ny] = 1 # 방문표시
-            virus(nx, ny)
+        if  visited[nx][ny]:
+            if temp[nx][ny] == 0:
+                temp[nx][ny] = 2
+                visited[nx][ny] = False # 방문표시
+                virus(nx, ny)
 
 
 
@@ -39,12 +39,13 @@ for i in range(N):
             lst.append((i,j))
 
 for c in set(combinations(lst, 3)):
-    temp = copy.deepcopy(matrix)
+    temp = [item[:] for item in matrix]
+    visited = [[True]*M for _ in range(N)]
     
     # 벽 세우기
     for a,b in c:
         temp[a][b] = 1
-    visited = copy.deepcopy(temp)
+    
 
     for i in range(N):
         for j in range(M):
