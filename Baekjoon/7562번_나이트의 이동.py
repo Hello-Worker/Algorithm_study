@@ -36,6 +36,7 @@ for _ in range(t):
                 if nx <0 or nx>=n or ny<0 or ny>=n:
                     continue
 
+
                 if nx == dest[0] and ny == dest[1]:
                     visited[nx][ny] = True
                     return matrix[x][y]+1
