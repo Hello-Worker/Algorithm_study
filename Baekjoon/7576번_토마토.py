@@ -13,6 +13,7 @@ for i in range(N):
         if matrix[i][j] == 1:
             queue.append((i,j))
 
+
 def BFS():
     while queue:
         x,y = queue.popleft()
