@@ -1,5 +1,6 @@
 from itertools import combinations
 
+
 def solution(nums):
     answer = 0
     for i in combinations(nums,3):
