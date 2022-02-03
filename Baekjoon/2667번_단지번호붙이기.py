@@ -15,7 +15,6 @@
 #     queue.append((x,y))
 #     graph[x][y] = 0  #탐색중인 위치 0으로 바꿔 다시 방문하지 않도록 함
 #     cnt = 1
-
     
 #     while queue:
 #         x,y = queue.popleft()
