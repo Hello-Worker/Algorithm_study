@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+C:\Users\ssvel\OneDrive\πŸ≈¡ »≠∏È\Algorithm_study\Java\Baekjoon\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-1599985705.index
-1735949903.index
