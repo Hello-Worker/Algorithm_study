@@ -1,6 +1,5 @@
 ### Java 알고리즘 문제 풀이
 - Baekjoon
-
 <br><br>
 
 ### Python 알고리즘 문제 풀이
