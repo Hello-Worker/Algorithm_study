@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Baekjoon/알고리즘 1-50단계/1단계_입출력과 사칙연산"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
