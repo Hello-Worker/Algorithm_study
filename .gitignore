@@ -2,3 +2,6 @@
 .idea/
 .metadata/
 
+/.classpath
+/.project
+/bin/
